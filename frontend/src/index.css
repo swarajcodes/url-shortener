@@ -48,43 +48,55 @@
 
 :root {
   --radius: 0.625rem;
-  /* Background and gradient vars */
+
+  /* Pure black and white theme */
   --background: #000000;
   --background-gradient-start: #000000;
-  --background-gradient-end: #434343;
-  /* Default text color pure white */
-  --foreground: #FFFFFF;
+  --background-gradient-end: #1a1a1a;
+  --foreground: #ffffff;
 
-  /* You can keep your other color vars here if needed */
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: #FFFFFF;
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: #FFFFFF;
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: #FFFFFF;
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: #FFFFFF;
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: #FFFFFF;
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  /* Card and surface colors - dark grays */
+  --card: #1a1a1a;
+  --card-foreground: #ffffff;
+  --popover: #1a1a1a;
+  --popover-foreground: #ffffff;
+
+  /* Primary - pure white for contrast */
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+
+  /* Secondary and accent - medium grays */
+  --secondary: #262626;
+  --secondary-foreground: #ffffff;
+  --accent: #262626;
+  --accent-foreground: #ffffff;
+
+  /* Muted - lighter grays */
+  --muted: #262626;
+  --muted-foreground: #a3a3a3;
+
+  /* Semantic colors */
+  --destructive: #ef4444;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #ffffff;
+
+  /* Chart colors - grayscale variations */
+  --chart-1: #ffffff;
+  --chart-2: #d4d4d4;
+  --chart-3: #a3a3a3;
+  --chart-4: #737373;
+  --chart-5: #525252;
+
+  /* Sidebar colors */
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #262626;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #ffffff;
 }
 
 @layer base {
@@ -92,7 +104,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    /* Shiny black constant gradient background */
+    /* Clean black to dark gray gradient */
     background: linear-gradient(
       135deg,
       var(--background-gradient-start),
@@ -102,9 +114,9 @@
   }
 }
 
-/* Logo styling */
+/* Logo styling - now using white to match theme */
 .font-logo {
   font-family: var(--font-logo);
-  font-size: 2.25rem; /* Tailwind's text-4xl */
-  color: #dc2626;     /* Tailwind's red-600 */
+  font-size: 2.25rem;
+  color: #ffffff;
 }

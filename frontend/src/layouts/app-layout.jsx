@@ -4,14 +4,14 @@ import { Outlet } from "react-router-dom";
 
 const AppLayout = () => {
   return (
-    <div>
-      <main className="min-h-screen container">
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-1 container mx-auto px-4">
         <Header />
         <Outlet />
       </main>
-      <div className="p-10 text-center bg-gray-800 mt-100 ">
-        Made with ❤️ by Swaraj
-      </div>
+      <footer className="py-8 text-center bg-card border-t border-border">
+        <p className="text-muted-foreground">Made with 🖤 by Swaraj</p>
+      </footer>
     </div>
   );
 };
