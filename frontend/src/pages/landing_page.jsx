@@ -1,0 +1,41 @@
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+const LandingPage = () => {
+  const [longUrl, setLongUrl] = useState();
+  const navigate = useNavigate();
+
+  const handleShorten = (e) => {
+    e.preventDefault();
+
+    if (longUrl) navigate(`/auth?createNew=${longUrl}`);
+  };
+  return (
+    <div className="flex flex-col items-center">
+      <h2 className="my-10 sm:my-16 text-3xl sm:text-6xl lg:text-7xl text-center font-hero">
+        Gotta Short'em all <span className="font-logo">!</span>
+      </h2>
+      <form
+        onSubmit={handleShorten}
+        className="sm:h-14 flex flex-col sm:flex-row w-full md:w-2/4 gap-2"
+      >
+        <Input
+          type="url"
+          value={longUrl}
+          placeholder="Long url -> [shrt.ly] -> Short url"
+          onChange={(e) => {
+            setLongUrl(e.target.value);
+          }}
+          className="h-full flex-1 py-4 px-4 bg-blend-hard-light border-red-800"
+        />
+        <Button className="h-full bg-orange-800" type="submit">
+          Cut it
+        </Button>
+      </form>
+    </div>
+  );
+};
+
+export default LandingPage;

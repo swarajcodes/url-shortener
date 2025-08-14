@@ -4,6 +4,7 @@
 
 @theme {
   --font-logo: "Bitcount Prop Single", sans-serif;
+  --font-hero: "Bitcount Prop Single", sans-serif;
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -114,9 +115,14 @@
   }
 }
 
-/* Logo styling - now using white to match theme */
 .font-logo {
   font-family: var(--font-logo);
   font-size: 2.25rem;
-  color: #ffffff;
+  color: #ef4444;
+}
+
+.font-hero {
+  font-family: var(--font-logo);
+  font-size: 2.25rem;
+  color: white;
 }

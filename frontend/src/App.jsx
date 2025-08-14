@@ -1,11 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import AppLayout from "./layouts/app-layout";
-import Landing from "./pages/landing-page";
+import Landing from "./pages/landing_page";
 import Dashboard from "./pages/dashboard";
 import Auth from "./pages/auth";
 import Link from "./pages/link";
 import RedirectLink from "./pages/redirect-link";
+import UrlProvider from "./context";
+import RequireAuth from "./components/require-auth";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +19,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: (
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
+        ),
       },
       {
         path: "/auth",
@@ -25,7 +31,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/link/:id",
-        element: <Link />,
+        element: (
+          <RequireAuth>
+            <Link />
+          </RequireAuth>
+        ),
       },
       {
         path: "/:id",
@@ -38,8 +48,10 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      {/* <div className="text-center text-3xl">Wassup danger</div> */}
-      <RouterProvider router={router} />
+      <UrlProvider>
+        {/* <div className="text-center text-3xl">Wassup danger</div> */}
+        <RouterProvider router={router} />
+      </UrlProvider>
     </>
   );
 }
