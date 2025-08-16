@@ -34,6 +34,7 @@ const Header = () => {
             <Button
               onClick={() => navigate("/auth")}
               variant="outline"
+              className="border-red-700"
               size="lg"
             >
               Login
@@ -55,8 +56,10 @@ const Header = () => {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <LinkIcon className="mr-2 h-4 w-4" />
-                  My Links
+                  <Link to="/dashboard" className="flex">
+                    <LinkIcon className="mr-2 h-4 w-4" />
+                    My Links
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="text-red-400">
                   <LogOut className="mr-2 h-4 w-4 text-red-400" />
