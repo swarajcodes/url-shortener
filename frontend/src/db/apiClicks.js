@@ -15,7 +15,6 @@ export async function getClicksForUrls(urlIds) {
   return data;
 }
 
-
 const parser = new UAParser();
 
 export const storeClicks = async ({ id }) => {
@@ -51,3 +50,17 @@ export const storeClicks = async ({ id }) => {
     console.error("Error recording click:", error.message);
   }
 };
+
+export async function getClicksForUrl(url_id) {
+  const { data, error } = await supabase
+    .from("clicks")
+    .select("*")
+    .eq("url_id", url_id)
+
+  if (error) {
+    console.error(error.message);
+    throw new Error("unable to load stats");
+  }
+
+  return data;
+}

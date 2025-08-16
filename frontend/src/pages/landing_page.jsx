@@ -4,36 +4,89 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
-  const [longUrl, setLongUrl] = useState();
+  const [longUrl, setLongUrl] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleShorten = (e) => {
-    e.preventDefault();
-
-    if (longUrl) navigate(`/auth?createNew=${longUrl}`);
+  // URL validation regex
+  const isValidUrl = (string) => {
+    try {
+      const url = new URL(string);
+      return url.protocol === "http:" || url.protocol === "https:";
+    } catch (err) {
+      console.log(err.message);
+      return false;
+    }
   };
+
+  const handleShorten = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    if (!longUrl.trim()) {
+      setError("Please enter a URL");
+      return;
+    }
+
+    if (!isValidUrl(longUrl)) {
+      setError("Please enter a valid URL (include http:// or https://)");
+      return;
+    }
+
+    setIsLoading(true);
+
+    // Simulate brief loading for better UX
+    setTimeout(() => {
+      navigate(`/auth?createNew=${encodeURIComponent(longUrl)}`);
+      setIsLoading(false);
+    }, 300);
+  };
+
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center px-4 sm:px-6 lg:px-8">
       <h2 className="my-10 sm:my-16 text-3xl sm:text-6xl lg:text-7xl text-center font-hero">
         Gotta Short'em all <span className="font-logo">!</span>
       </h2>
+
       <form
         onSubmit={handleShorten}
         className="sm:h-14 flex flex-col sm:flex-row w-full md:w-2/4 gap-2"
       >
-        <Input
-          type="url"
-          value={longUrl}
-          placeholder="Long url -> [shrt.ly] -> Short url"
-          onChange={(e) => {
-            setLongUrl(e.target.value);
-          }}
-          className="h-full flex-1 py-4 px-4 bg-blend-hard-light border-red-800"
-        />
-        <Button className="h-full bg-orange-800" type="submit">
-          Cut it
+        <div className="flex-1">
+          <Input
+            type="url"
+            value={longUrl}
+            placeholder="Enter your long URL here..."
+            onChange={(e) => {
+              setLongUrl(e.target.value);
+              if (error) setError(""); // Clear error when user types
+            }}
+            className="h-full py-4 px-4 bg-card border-white/20 text-foreground placeholder:text-muted-foreground focus:border-white/40 focus:ring-white/20 transition-colors"
+            aria-label="URL to shorten"
+            disabled={isLoading}
+          />
+          {error && (
+            <p className="text-red-400 text-sm mt-1 px-1" role="alert">
+              {error}
+            </p>
+          )}
+        </div>
+
+        <Button
+          className="h-full bg-white text-black hover:bg-white/90 focus:bg-white/90 transition-colors font-medium px-6 disabled:opacity-50"
+          type="submit"
+          disabled={isLoading}
+          aria-label="Shorten URL"
+        >
+          {isLoading ? "Processing..." : "Shorten It"}
         </Button>
       </form>
+
+      {/* Optional: Add some helpful text */}
+      <p className="text-muted-foreground text-sm mt-4 text-center max-w-md">
+        Transform your long URLs into clean, shareable links in seconds
+      </p>
     </div>
   );
 };

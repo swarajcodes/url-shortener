@@ -70,20 +70,35 @@ export async function getLongUrl(id) {
     const { data, error } = await supabase
       .from("urls")
       .select("id, original_url")
-      .or(`short_url.eq.${id},custom_url.eq.${id}`) 
+      .or(`short_url.eq.${id},custom_url.eq.${id}`)
       .single();
 
     if (error) {
       if (error.code !== "PGRST116") {
         console.error("Error fetching short link:", error);
       }
-      return null; // explicit "not found"
+      return null;
     }
 
-    return data; // { id, original_url }
+    return data;
   } catch (err) {
     console.error("Unexpected error in getLongUrl:", err);
     return null;
   }
 }
 
+export async function getUrl({ id, user_id }) {
+  const { data, error } = await supabase
+    .from("urls")
+    .select("*")
+    .eq("id", id)
+    .eq("user_id", user_id)
+    .single();
+
+  if (error) {
+    console.error(error.message);
+    throw new Error("Short Url not found")
+  }
+
+  return data;
+}

@@ -1,7 +1,6 @@
 import CreateLink from "@/components/create-link";
 import Error from "@/components/error";
 import LinkCard from "@/components/link-card";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { UrlState } from "@/context";
@@ -45,7 +44,7 @@ const Dashboard = () => {
         <BarLoader width={"100%"} color="#ff0000" />
       )}
       <div className="grid grid-cols-2 gap-4">
-        <Card>
+        <Card className={"bg-black/50"}>
           <CardHeader>
             <CardTitle>
               <span className="font-logo"> Urls </span>{" "}
@@ -53,10 +52,10 @@ const Dashboard = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p>{urls?.length}</p>
+            <p className="font-hero">{urls?.length}</p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className={"bg-black/50"}>
           <CardHeader>
             <CardTitle>
               <span className="font-logo"> Clicks </span>{" "}
@@ -64,7 +63,7 @@ const Dashboard = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p>{clicks?.length || "0"}</p>
+            <p className="font-hero">{clicks?.length || "0"}</p>
           </CardContent>
         </Card>
       </div>

@@ -25,7 +25,7 @@ const LinkCard = ({ url, fetchUrls }) => {
   const { loading: loadingDelete, fn: fnDelete } = useFetch(deleteUrl, url?.id);
 
   return (
-    <div className="flex flex-col md:flex-row gap-5 border bg-black/30 p-4 rounded-lg shadow-md hover:shadow-red-600/40 transition duration-300">
+    <div className="flex flex-col md:flex-row gap-5 border bg-black/50 p-4 rounded-lg shadow-md hover:shadow-red-600/40 transition duration-300">
       <img
         src={url?.qr}
         className="h-32 w-32 object-contain ring-2 self-start"
