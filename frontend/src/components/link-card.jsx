@@ -40,7 +40,9 @@ const LinkCard = ({ url, fetchUrls }) => {
           {url?.title}
         </span>
         <span className="text-sm text-red-400 truncate hover:underline cursor-pointer">
-          https://shwrt-ly.vercel.app/{url?.custom_url ? url?.custom_url : url.short_url}
+          {`${window.location.origin}/${
+            url?.custom_url ? url?.custom_url : url.short_url
+          }`}
         </span>
         <span className="flex items-center gap-1 text-xs text-gray-400 truncate">
           {url?.original_url}
@@ -54,7 +56,11 @@ const LinkCard = ({ url, fetchUrls }) => {
         <Button
           variant="outline"
           onClick={() =>
-            navigator.clipboard.writeText(`https://sht.ly/${url?.short_url}`)
+            navigator.clipboard.writeText(
+              `${window.location.origin}/${
+                url?.custom_url ? url?.custom_url : url.short_url
+              }`
+            )
           }
         >
           <Copy />

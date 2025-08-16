@@ -69,11 +69,11 @@ const Link = () => {
 
           {/* Short URL */}
           <a
-            href={`https://shwrt-ly.vercel.app/${link}`}
+            href={`${window.location.origin}/${link}`}
             target="_blank"
             className="text-lg text-red-400 truncate hover:text-red-300 hover:underline transition"
           >
-            https://shwrt-ly.vercel.app/{link}
+            {`${window.location.origin}/${link}`}
           </a>
 
           {/* Original URL */}
@@ -98,7 +98,7 @@ const Link = () => {
               className="border-red-500 text-red-400 hover:bg-red-500 hover:text-white"
               onClick={() =>
                 navigator.clipboard.writeText(
-                  `https://shwrt-ly.vercel.app/${url?.short_url}`
+                  `${window.location.origin}/${link}`
                 )
               }
             >
