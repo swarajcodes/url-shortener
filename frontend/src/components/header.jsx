@@ -25,8 +25,8 @@ const Header = () => {
     <>
       <nav className="py-6 flex justify-between items-center">
         <Link className="flex items-center gap-3" to="/">
-          <img src="/logo.png" className="h-12 w-12" alt="shrt.ly logo" />
-          <span className="font-logo">shrt.ly</span>
+          <img src="/logo.png" className="h-12 w-12" alt="shwrt.ly logo" />
+          <span className="font-logo">shwrt.ly</span>
         </Link>
 
         <div>

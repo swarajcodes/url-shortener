@@ -121,7 +121,7 @@ const CreateLink = () => {
 
         <div className="flex items-center gap-2">
           <Card className="font-logo gap-2  bg-transparent border-0">
-            shrt.ly
+            shwrt.ly
           </Card>
           /
           <Input
