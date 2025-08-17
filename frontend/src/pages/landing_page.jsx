@@ -85,9 +85,7 @@ const LandingPage = () => {
 
       {/* App Demo Video */}
       <div className="mt-12 mb-8 w-full max-w-4xl">
-        <h3 className="text-2xl sm:text-3xl font-semibold text-center mb-6 text-white">
-          🎥 See It In Action
-        </h3>
+        
         <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-2xl">
           <video
             className="w-full h-full object-cover"

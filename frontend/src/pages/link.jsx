@@ -80,7 +80,7 @@ const Link = () => {
           <a
             href={url?.original_url}
             target="_blank"
-            className="flex items-center gap-2 text-sm text-gray-400 truncate hover:text-gray-200 break-all"
+            className="flex items-center gap-2 text-sm text-gray-400 truncate hover:text-gray-200 break-all text-wrap"
           >
             <LinkIcon className="w-4 h-4 text-red-400" />
             {url?.original_url}
