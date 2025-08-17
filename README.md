@@ -6,7 +6,7 @@ A modern, feature-rich URL shortening application built with React, Vite, and Su
 
 <!-- Add your screen recording video here -->
 <div align="center">
-  <h3>🎥 Application Demo</h3>
+  <!--<h3>🎥 Application Demo</h3>
   <p>📱 <em>Add your screen recording video here to showcase the application in action</em></p>
   
   <!-- Video placeholder - replace with your actual video -->
@@ -16,7 +16,7 @@ A modern, feature-rich URL shortening application built with React, Vite, and Su
       <video >
     </p>
   </div>-->
-</div>
+</div>-->
 
 ## ✨ Features
 
