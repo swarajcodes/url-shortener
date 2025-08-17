@@ -83,6 +83,28 @@ const LandingPage = () => {
         </Button>
       </form>
 
+      {/* App Demo Video */}
+      <div className="mt-12 mb-8 w-full max-w-4xl">
+        <h3 className="text-2xl sm:text-3xl font-semibold text-center mb-6 text-white">
+          🎥 See It In Action
+        </h3>
+        <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-2xl">
+          <video
+            className="w-full h-full object-cover"
+            controls
+            poster="/video-poster.jpg"
+            preload="metadata"
+          >
+            <source src="/app-demo.mp4" type="video/mp4" />
+            <source src="/app-demo.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p className="text-center text-muted-foreground text-sm mt-3">
+          Watch how easy it is to shorten URLs and track analytics
+        </p>
+      </div>
+
       {/* Optional: Add some helpful text */}
       <p className="text-muted-foreground text-sm mt-4 text-center max-w-md">
         Transform your long URLs into clean, shareable links in seconds
